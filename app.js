@@ -1,14 +1,23 @@
 $(document).ready(function() {
 
-var inputVal = prompt("Please input a number from 1 to 100")
-var inputVal = +inputVal
+var num = prompt("Please input a number from 1 to 100")
 var alertReload = function(message) {
 	alert(message);
 	location.reload();
 }
 
-if (inputVal % 1 != 0) {
-	alertReload("Please input a number")
+if (num % 1 != 0) {
+	alertReload("Please input a whole number e.g. 1")
+} else if (num % 3 === 0) {
+	if (num % 5 === 0) {
+		alertReload("FizzBuzz");
+	} else {
+		alertReload("Fizz");
+	}
+} else if (num % 5 ===0) {
+	alertReload("Buzz");
+} else {
+	alertReload(num + " did not fizz or buzz :(");
 }
 
 
@@ -25,4 +34,6 @@ if (inputVal % 1 != 0) {
 //			$('body').append("<p>" + i + "</p>")
 //		}
 //	}
+
+
 })
