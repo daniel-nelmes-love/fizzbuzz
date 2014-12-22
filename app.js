@@ -1,8 +1,15 @@
 $(document).ready(function() {
 
-var inputValue = prompt("Please input a number from 1 to 100", "number");
+var inputVal = prompt("Please input a number from 1 to 100")
+var inputVal = +inputVal
+var alertReload = function(message) {
+	alert(message);
+	location.reload();
+}
 
-$('body').append(inputValue);
+if (inputVal % 1 != 0) {
+	alertReload("Please input a number")
+}
 
 
 //	for (var i = 1; i <= 100; i++) {
