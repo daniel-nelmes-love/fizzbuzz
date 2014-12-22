@@ -1,6 +1,7 @@
 $(document).ready(function() {
 
-var num = prompt("Please input a number from 1 to 100")
+var num = prompt("Input a number to see if it will Fizz and/or Buzz")
+var num = +num
 var alertReload = function(message) {
 	alert(message);
 	location.reload();
@@ -8,6 +9,8 @@ var alertReload = function(message) {
 
 if (num % 1 != 0) {
 	alertReload("Please input a whole number e.g. 1")
+} else if (num===0) {
+	alertReload("Are you trying to break me!?")
 } else if (num % 3 === 0) {
 	if (num % 5 === 0) {
 		alertReload("FizzBuzz");
@@ -16,8 +19,14 @@ if (num % 1 != 0) {
 	}
 } else if (num % 5 ===0) {
 	alertReload("Buzz");
-} else {
-	alertReload(num + " did not fizz or buzz :(");
+} else{
+	if(confirm(num + " did not fizz or buzz :(" +
+		"\n" +
+		"Would you like to try again?")) {
+		location.reload();
+	} else {
+		alert("Thanks for playing!")
+	}
 }
 
 
